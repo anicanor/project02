@@ -65,12 +65,12 @@ if(sort == "rating") // it is mostly the same block of code as the last block bu
 }          
 if(sort == "title") // this uses the same block of code except this time it does the order function  
 {
-    for(int last = videoAmount -1; bottom > 0; bottom--)
+    for(int bottom = videoAmount -1; bottom > 0; bottom--)
         for(int current = 0; current < bottom; current++)
             if(videoInfo[current]->order(videoInfo[current+1]))
             swap(videoInfo[current], videoInfo[current+1]);
             for(int k = 0; k < videoAmount, k++)
-            {
+            { 
                 videoInfo[k]->print():
             }
             }
