@@ -69,7 +69,7 @@ if(sort == "title") // this uses the same block of code except this time it does
         for(int current = 0; current < bottom; current++)
             if(videoInfo[current]->order(videoInfo[current+1]))
             swap(videoInfo[current], videoInfo[current+1]);
-            for(int k = 0; k < videoAmount, k++)
+            for(int k = 0; k < videoAmount; k++)
             { 
                 videoInfo[k]->print();
             }
