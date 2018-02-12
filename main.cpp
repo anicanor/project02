@@ -71,10 +71,10 @@ if(sort == "title") // this uses the same block of code except this time it does
             swap(videoInfo[current], videoInfo[current+1]);
             for(int k = 0; k < videoAmount, k++)
             { 
-                videoInfo[k]->print():
+                videoInfo[k]->print();
             }
             }
-            if(sort! = "length"&&sort!="rating"&&sort!="title")
+            if(sort!="length"&&sort!="rating"&&sort!="title")
                 {
                     cerr << sort << " is not a legal sorting method, giving up." << endl;
                     return 1;
