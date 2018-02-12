@@ -15,8 +15,8 @@ class Video
         Video(string name, string address, string comments, float length, int rating);
         void print();
         bool longer(Video *other);
-        bool shorter(VIdeo *other);
-        bool order(VIeo *other);
+        bool shorter(Video *other);
+        bool order(Video *other);
     private:
         string m_name;
         string m_address;
