@@ -49,7 +49,7 @@ if(sort == "length") // these blocks of program are pointers and use the functio
             swap(videoInfo[current], videoInfo[current+1]);
                 for(int k = 0; k < videoAmount; k++)
                 {
-                    videoInfo[i]->print();
+                    videoInfo[k]->print();
                 }
 }
 if(sort == "rating") // it is mostly the same block of code as the last block but this time it used the shorter function within the class
@@ -58,7 +58,7 @@ if(sort == "rating") // it is mostly the same block of code as the last block bu
         for(int current = 0; current < bottom; current++)
             if(videoInfo[current]->shorter(videoInfo[current+1]))
             swap(videoInfo[current], videoInfo[current+1]);
-            for(int k = 0; k < videoAmount, k++)
+            for(int k = 0; k < videoAmount; k++)
             {
                 videoInfo[k]->print();
             }
