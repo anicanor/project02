@@ -33,7 +33,7 @@ bool Video::order(Video *other) // these functions use pointers from the previou
 }
 bool Video::longer(Video *other)
 {
-    return m_length < other -> m_length;
+    return m_length > other -> m_length;
 }
 bool Video::shorter(Video *other)
 {
