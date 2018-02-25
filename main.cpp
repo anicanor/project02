@@ -15,6 +15,7 @@ using namespace std;
 int main()
 {
 // variable declaration here
+    Vlist list;
     float length;
     int rating;
     string title;
@@ -65,7 +66,7 @@ while(getline(cin,command))
         cerr << "Title <" << title << "> not in list." << endl;
      }
      // If the command it not valid it will error out that it doesnt exist. 
-     if( command != "insert" && comand != "remove" && command != "print" && command != "length" && command != "lookup")
+     if( command != "insert" && command != "remove" && command != "print" && command != "length" && command != "lookup")
      {
      cerr << "<" << command << "> is not a legal command, giving up." << endl;
      return 1;
