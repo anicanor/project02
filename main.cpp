@@ -7,9 +7,9 @@
 #include <istream>
 #include <string>
 #include <fstream> 
-// class Video
+// class Video and class Vlist
 #include "video.h"
-
+#include "vlist.h"
 using namespace std;
 
 int main()
@@ -17,71 +17,61 @@ int main()
 // variable declaration here
     float length;
     int rating;
-    int videoAmount = 0;
-    string sort;
     string title;
-    string URL;
-    string videos;
     string comment;
-    getline(cin,sort);
-    Video *videoInfo[100];
-// if there is to many videos entered it returns an error
-while(getline(cin, title))
+    string URL;
+    string command;
+//checks what the command is and responds accordingly. 
+while(getline(cin,command))
 {
-    if(videoAmount == 100)
+    if ( command == "insert")
     {
-        cerr << "Too many videos, giving up." << endl;
-        return 1;
-    }
-    getline(cin,URL);
-    getline(cin,comment);
-    cin >> length;
-    cin >> rating;
-    cin.ignore();
-    videoInfo[videoAmount] = new Video(title, URL, comment, length, rating);
-    videoAmount++;
+        getline(cin,title);
+        getline(cin,comment);
+        getline(cin,URL);
+        cin>>length;
+        cin>>rating;
+        cin.ignore();
+        Video *new_video = new Video(title, URL, comment, length, rating);
+        // error command if it is already in list. each respective command has an error if not valid
+        if (!list.insert(new_video))
+        {
+            cerr << "Could not insert video <" <<title<< ">, already in list."<<endl;
+        }
+     }
+     if( command == "remove" )
+     {
+        getline(cin, title);
+        if ( !list.remove(title) )
+        {
+            cerr<<"Title <" <<title<< "> not in list, could not delete." << endl;
+        }
+     }
+     if( command == "print")
+     {
+        list.print();
+     }
+     if( command == "length" )
+     {
+        cout<<list.length()<<endl;
+     }
+     if( command == "lookup" )
+     {
+        getline(cin, title);
+        Video *video = list.lookup(title);
+        if(video)
+            video->print();
+        else
+        cerr << "Title <" << title << "> not in list." << endl;
+     }
+     // If the command it not valid it will error out that it doesnt exist. 
+     if( command != "insert" && comand != "remove" && command != "print" && command != "length" && command != "lookup")
+     {
+     cerr << "<" << command << "> is not a legal command, giving up." << endl;
+     return 1;
+     }
+     }
+        return 0;
 }
-if(sort == "length") // these blocks of program are pointers and use the functioms within the class to produce the output
-{
-    for(int bottom = videoAmount -1; bottom > 0; bottom--)
-        for (int current = 0; current < bottom; current++)
-            if (videoInfo[current] -> longer(videoInfo[current+1]))
-            swap(videoInfo[current], videoInfo[current+1]);
-                for(int k = 0; k < videoAmount; k++)
-                {
-                    videoInfo[k]->print();
-                }
-}
-if(sort == "rating") // it is mostly the same block of code as the last block but this time it used the shorter function within the class
-{
-    for(int bottom = videoAmount -1; bottom > 0; bottom--)
-        for(int current = 0; current < bottom; current++)
-            if(videoInfo[current]->shorter(videoInfo[current+1]))
-            swap(videoInfo[current], videoInfo[current+1]);
-            for(int k = 0; k < videoAmount; k++)
-            {
-                videoInfo[k]->print();
-            }
-}          
-if(sort == "title") // this uses the same block of code except this time it does the order function  
-{
-    for(int bottom = videoAmount -1; bottom > 0; bottom--)
-        for(int current = 0; current < bottom; current++)
-            if(videoInfo[current]->order(videoInfo[current+1]))
-            swap(videoInfo[current], videoInfo[current+1]);
-            for(int k = 0; k < videoAmount; k++)
-            { 
-                videoInfo[k]->print();
-            }
-            }
-            if(sort!="length"&&sort!="rating"&&sort!="title")
-                {
-                    cerr << sort << " is not a legal sorting method, giving up." << endl;
-                    return 1;
-                }
-                return 0;
-                }
-
-
 
 
