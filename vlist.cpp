@@ -6,8 +6,8 @@
 #include<iostream>
 #include<string>
 //classes
-#include"video.h"
 #include"vlist.h"
+#include"video.h"
 
 using namespace std;
 //constructor
