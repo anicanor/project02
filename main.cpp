@@ -10,7 +10,9 @@
 // class Video and class Vlist
 #include "video.h"
 #include "vlist.h"
+
 using namespace std;
+
 
 int main()
 {
@@ -71,7 +73,7 @@ while(getline(cin,command))
      cerr << "<" << command << "> is not a legal command, giving up." << endl;
      return 1;
      }
-     }
+     } 
         return 0;
 }
 
