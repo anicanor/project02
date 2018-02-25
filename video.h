@@ -17,6 +17,7 @@ class Video
         bool longer(Video *other);
         bool shorter(Video *other);
         bool order(Video *other);
+        string name();
     private:
         string m_name;
         string m_address;
