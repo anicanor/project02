@@ -8,6 +8,11 @@
 #include<string>
 
 using namespace std;
+// new name function
+string Video::name()
+{
+    return m_name;
+}
 //this is where i declared the strings. it is the constructor function
 Video::Video (string name, string address, string comments, float length, int rating)
 {
