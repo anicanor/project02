@@ -31,13 +31,13 @@ Vlist::~Vlist()
 Video* Vlist::lookup(string title)
 {
     if(!m_head)
-    return NULL:
+    return NULL;
 
-    for( Node *tmp = m_head; temp != NULL; tmp = tmp->m_next )
+    for( Node *tmp = m_head; tmp != NULL; tmp = tmp->m_next )
     {
         if( title == tmp->m_video->name() )
         {
-            return temp->m_video;
+            return tmp->m_video;
         }
     }
     return NULL;
