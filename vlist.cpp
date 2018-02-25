@@ -83,7 +83,7 @@ bool Vlist::insert(Video *video)
     else
     {
         Node *ptr = m_head;
-        while (( ptr->m_next != NULL) && (ptr->m_next->m_video->name() <= video->name() )
+        while (( ptr->m_next != NULL) && (ptr->m_next->m_video->name() <= video->name()))
         {
             if( ptr->m_next->m_video->name() == video->name() )
             {
