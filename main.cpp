@@ -30,8 +30,8 @@ while(getline(cin,command))
     if ( command == "insert")
     {
         getline(cin,title);
-        getline(cin,comment);
         getline(cin,URL);
+        getline(cin,comment);
         cin>>length;
         cin>>rating;
         cin.ignore();
